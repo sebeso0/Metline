@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+        <title>Services</title>
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&family=Yeseva+One&display=swap"
+            rel="stylesheet">
+        <Style>
+            :root {
+                --white: #fcfefe;
+                --primary-green: #222823;
+                --secondary-blue: #159eec;
+                --accent-blue: #bfd2f8;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Work Sans', sans-serif;
+                line-height: 1.6;
+            }
+
+            .brand-logo {
+                position: relative;
+                /* Changed from absolute */
+                margin: 10px;
+            }
+
+            .logo-image {
+                width: 150px;
+                height: auto;
+                display: block;
+                max-height: 60px;
+                object-fit: contain;
+            }
+
+            .header-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 19px 80px;
+                flex-wrap: wrap;
+                gap: 40px;
+            }
+
+            /* Header Styles */
+            .header-container {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .header-wrapper {
+                background: var(--white);
+                display: flex;
+                width: 100%;
+                gap: 40px 100px;
+                flex-wrap: wrap;
+                padding: 19px 1px 0 80px;
+                align-items: center;
+                margin-right: 10px;
+            }
+
+            .brand-name {
+                color: var(--primary-green);
+                text-transform: uppercase;
+                font: 400 36px 'Yeseva One', serif;
+                flex-grow: 1;
+                width: 134px;
+            }
+
+            .contact-info-wrapper {
+                display: flex;
+                gap: 40px 44px;
+                font: 500 16px 'Work Sans', sans-serif;
+                align-items: center;
+            }
+
+            .emergency-contact,
+            .hours-wrapper,
+            .location-wrapper {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .emergency-icon,
+            .hours-icon,
+            .location-icon {
+                width: 40px;
+                height: 40px;
+                object-fit: contain;
+            }
+
+            .contact-details {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .contact-label {
+                color: var(--primary-green);
+                text-transform: uppercase;
+                font-weight: 500;
+            }
+
+            .contact-info {
+                color: var(--secondary-blue);
+            }
+
+            .navigation-container {
+                background: var(--primary-green);
+                color: var(--white);
+            }
+
+            .navigation-bar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                min-height: 80px;
+                padding: 30px 187px;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 20px;
+            }
+
+            .nav-link {
+                color: inherit;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            .nav-link:hover {
+                color: var(--accent-blue);
+            }
+
+            .nav-link-active {
+                color: var(--accent-blue);
+                font-weight: 600;
+            }
+
+            .get-quote-btn {
+                background-color: var(--accent-blue);
+                color: var(--primary-green);
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            .get-quote-btn:hover {
+                background-color: #a0c1f0;
+                transform: scale(1.05);
+            }
+
+            @media (max-width: 991px) {
+                .header-wrapper {
+                    padding: 19px 20px;
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                .contact-info-wrapper {
+                    flex-direction: column;
+                    gap: 20px;
+                }
+
+                .navigation-bar {
+                    padding: 30px 20px;
+                    flex-direction: column;
+                }
+
+                .nav-links {
+                    flex-direction: column;
+                    align-items: center;
+                    margin-bottom: 20px;
+                }
+
+                .get-quote-btn {
+                    margin-top: 20px;
+                }
+            }
+
+            .visually-hidden {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
+            }
+
+            .container {
+                text-align: center;
+                padding: 20px;
+                max-width: 800px;
+            }
+
+            .title {
+                font-size: 2.5rem;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 30px;
+            }
+
+            .button {
+                display: inline-block;
+                background-color: #0d851f;
+                /* Green button */
+                color: white;
+                padding: 12px 24px;
+                font-size: 1rem;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+
+            .button:hover {
+                background-color: #3A9570;
+            }
+
+            /* Footer */
+            .footer-container {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .footer-main {
+                background: var(--Primary, #222823);
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 71px 80px;
+            }
+
+            .footer-content {
+                display: flex;
+                width: 100%;
+                max-width: 992px;
+                flex-direction: column;
+            }
+
+            .footer-sections {
+                margin-right: 32px;
+            }
+
+            .footer-row {
+                gap: 20px;
+                display: flex;
+            }
+
+            .brand-column {
+                display: flex;
+                flex-direction: column;
+                line-height: normal;
+                width: 31%;
+                margin-left: 0;
+            }
+
+            .brand-content {
+                display: flex;
+                flex-direction: column;
+                font-weight: 400;
+            }
+
+            .brand-name {
+                color: var(--Accent, #bfd2f8);
+                text-transform: uppercase;
+                align-self: start;
+                font: 36px Yeseva One, sans-serif;
+            }
+
+            .brand-description {
+                color: var(--white, #fcfefe);
+                margin-top: 17px;
+                font: 18px/25px Work Sans, sans-serif;
+            }
+
+            .contact-column {
+                display: flex;
+                flex-direction: column;
+                line-height: normal;
+                width: 69%;
+                margin-left: 20px;
+            }
+
+            .contact-content {
+                display: flex;
+                flex-grow: 1;
+                flex-direction: column;
+                align-items: start;
+                color: var(--white, #fcfefe);
+                font: 400 16px/1.4 Work Sans, sans-serif;
+            }
+
+            .contact-heading {
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            .contact-phone {
+                margin-top: 38px;
+            }
+
+            .contact-email {
+                margin-top: 7px;
+            }
+
+            .contact-address {
+                align-self: stretch;
+                margin-top: 7px;
+            }
+
+            .footer-divider {
+                aspect-ratio: 1000;
+                object-fit: contain;
+                object-position: center;
+                width: 100%;
+                stroke-width: 1px;
+                stroke: var(--Accent, #bfd2f8);
+                margin-top: 74px;
+            }
+
+            .footer-bottom {
+                display: flex;
+                margin-top: 44px;
+                width: 100%;
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .copyright-text {
+                color: var(--white, #fcfefe);
+                margin: auto 0;
+                font: 400 16px Work Sans, sans-serif;
+            }
+
+            .social-links {
+                display: flex;
+                gap: 20px;
+            }
+
+            .social-icon {
+                aspect-ratio: 1;
+                object-fit: contain;
+                object-position: center;
+                width: 24px;
+                fill: var(--Accent, #bfd2f8);
+            }
+
+            .email-link {
+                text-decoration: underline;
+                color: inherit;
+            }
+
+            @media (max-width: 991px) {
+                .footer-main {
+                    max-width: 100%;
+                    padding: 0 20px;
+                }
+
+                .footer-content {
+                    max-width: 100%;
+                }
+
+                .footer-sections {
+                    max-width: 100%;
+                    margin-right: 10px;
+                }
+
+                .footer-row {
+                    flex-direction: column;
+                    align-items: stretch;
+                    gap: 0;
+                }
+
+                .brand-column {
+                    width: 100%;
+                }
+
+                .brand-content {
+                    margin-top: 40px;
+                }
+
+                .contact-column {
+                    width: 100%;
+                }
+
+                .contact-content {
+                    max-width: 100%;
+                    margin-top: 40px;
+                }
+
+                .contact-address {
+                    max-width: 100%;
+                }
+
+                .footer-divider {
+                    max-width: 100%;
+                    margin-top: 40px;
+                }
+
+                .footer-bottom {
+                    max-width: 100%;
+                    margin-top: 40px;
+                }
+            }
+
+            @media (max-width: 991px) {
+                .homepage {
+                    min-height: auto;
+                    padding: 50px 20px;
+                }
+
+                .homepage-title {
+                    font-size: 2rem;
+                }
+
+                .homepage-subtitle {
+                    font-size: 1rem;
+                }
+            }
+
+            /* Main */
+            .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            font-family: 'Work Sans', sans-serif;
+            }
+
+            .services-header {
+                border-left: 4px solid #159eec;
+                padding-left: 20px;
+                margin-bottom: 60px;
+            }
+
+            .services-title {
+                color: #486581;
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+
+            .services-subtitle {
+                color: #486581;
+                font-size: 1.2rem;
+                margin-bottom: 25px;
+            }
+
+            .contact-button {
+                display: inline-block;
+                background-color: #159eec;
+                color: white;
+                padding: 12px 30px;
+                text-decoration: none;
+                border-radius: 4px;
+                font-weight: 500;
+                transition: background-color 0.3s ease;
+            }
+
+            .contact-button:hover {
+                background-color: #1184c7;
+            }
+
+            .services-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: center;
+                margin-top: 60px;
+            }
+
+            .services-image {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .services-details {
+                padding: 20px;
+            }
+
+            .service-section {
+                margin-bottom: 40px;
+            }
+
+            .service-section-title {
+                color: #486581;
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+
+            .service-description {
+                color: #486581;
+                font-size: 1.1rem;
+                line-height: 1.6;
+                margin-bottom: 15px;
+            }
+
+            @media (max-width: 768px) {
+                .services-content {
+                    grid-template-columns: 1fr;
+                }
+
+                .services-title {
+                    font-size: 2rem;
+                }
+
+                .service-section-title {
+                    font-size: 1.75rem;
+                }
+            }
+            .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            font-family: 'Work Sans', sans-serif;
+            }
+
+            .services-header {
+                border-left: 4px solid #159eec;
+                padding-left: 20px;
+                margin-bottom: 60px;
+            }
+
+            .services-title {
+                color: #486581;
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+
+            .services-subtitle {
+                color: #486581;
+                font-size: 1.2rem;
+                margin-bottom: 25px;
+            }
+
+            .services-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: center;
+                margin-bottom: 60px;
+                background-color: #f8fafc;
+                padding: 40px;
+                border-radius: 8px;
+                box-shadow: 0 16px 24px rgba(0, 0, 0, 0.05);
+            }
+
+            /* New styles for delivery and outsourcing section */
+            .delivery-section {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: center;
+                margin-top: 60px;
+                background-color: #f8fafc;
+                padding: 40px;
+                border-radius: 8px;
+                box-shadow: 0 16px 24px rgba(0, 0, 0, 0.05);
+            }
+
+            .delivery-content {
+                order: 1;
+            }
+
+            .delivery-image {
+                order: 2;
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .delivery-title {
+                color: #486581;
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+
+            .delivery-description {
+                color: #486581;
+                font-size: 1.1rem;
+                margin-bottom: 20px;
+            }
+
+            .delivery-list {
+                list-style: none;
+                padding: 0;
+            }
+
+            .delivery-list li {
+                color: #486581;
+                font-size: 1.1rem;
+                margin-bottom: 12px;
+                padding-left: 24px;
+                position: relative;
+            }
+
+            .delivery-list li::before {
+                content: "•";
+                color: #159eec;
+                position: absolute;
+                left: 0;
+                font-weight: bold;
+            }
+
+            .outsourcing-section {
+                margin-top: 60px;
+                padding: 40px;
+                background-color: #f8fafc;
+                border-radius: 8px;
+                box-shadow: 0 16px 24px rgba(0, 0, 0, 0.05);
+            }
+
+            .outsourcing-title {
+                color: #486581;
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+
+            .outsourcing-description {
+                color: #486581;
+                font-size: 1.1rem;
+            }
+
+            @media (max-width: 768px) {
+                .delivery-section {
+                    grid-template-columns: 1fr;
+                }
+                
+                .delivery-content {
+                    order: 2;
+                }
+                
+                .delivery-image {
+                    order: 1;
+                }
+                
+                .delivery-title {
+                    font-size: 1.75rem;
+                }
+                
+                .outsourcing-title {
+                    font-size: 1.75rem;
+                }
+            }
+        </Style>
+    </head>
+
+    <body>
+        <header class="header-container" role="banner">
+            <div class="header-wrapper">
+                <!-- <h1 class="brand-name">METLine</h1> -->
+                <div class="brand-logo">
+                    <a href="#">
+                        <img src="images/METLINE LOGO.png" alt="Metline Logo" class="logo-image"
+                            onerror="this.onerror=null; this.src='/api/placeholder/150/50';" />
+                    </a>
+                </div>
+                <div class="contact-info-wrapper">
+                    <div class="emergency-contact">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/558daa917e48431dfc6fffd8896a1e81854601534009a79c34f36b0261240815?placeholderIfAbsent=true&apiKey=8547e54ae68444a7bf1ef236725efd17"
+                            alt="" class="emergency-icon" />
+                        <div class="contact-details">
+                            <span class="contact-label">Call</span>
+                            <span class="contact-info">
+                                +267 3111971
+                                <br />
+                                +267 77400763
+                            </span>
+                        </div>
+                    </div>
+                    <div class="hours-wrapper">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ec49688a3862379dededa3532f4aaffc5b1fcb46a12d31b7e3f1cf23427d254b?placeholderIfAbsent=true&apiKey=8547e54ae68444a7bf1ef236725efd17"
+                            alt="" class="hours-icon" />
+                        <div class="contact-details">
+                            <span class="contact-label">Work Hour</span>
+                            <span class="contact-info">08:00 - 17:00</span>
+                        </div>
+                    </div>
+                    <div class="location-wrapper">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9bff12036c861ce8df4797fa1aea5b0f59eb92b7847de119fd14e9eb302b0d65?placeholderIfAbsent=true&apiKey=8547e54ae68444a7bf1ef236725efd17"
+                            alt="" class="location-icon" />
+                        <div class="contact-details">
+                            <span class="contact-label">Location</span>
+                            <span class="contact-info">
+                                Plot 64, Unit 30, Gaborone International
+                                <br />
+                                Commerce Park, Gaborone, Botswana
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navigation-container">
+                <nav class="navigation-bar" role="navigation" aria-label="Main navigation">
+                    <div class="nav-links">
+                        <a href="METLINE.html" class="nav-link">Home</a>
+                        <a href="AboutUs.html" class="nav-link">About us</a>
+                        <a href="Services.html" class="nav-link nav-link-active" aria-current="page">Services</a>
+                        <a href="ContactUs.html" class="nav-link">Contact Us</a>
+                    </div>
+                    <button class="get-quote-btn">Get Quote</button>
+                </nav>
+            </div>
+        </header>
+
+        <div class="services-container">
+            <div class="services-header">
+                <h1 class="services-title">SERVICES</h1>
+                <p class="services-subtitle">In caring for Botswana, we offer:</p>
+            </div>
+        
+            <div class="services-content">
+                <img src="images/image1.jpg" alt="Medical professionals reviewing products" class="services-image">
+        
+                <div class="services-details">
+                    <div class="service-section">
+                        <h2 class="service-section-title">SOURCING OF PRODUCTS</h2>
+                        <p class="service-description">We import and export wholesale pharmaceutical products for the public and
+                            private sectors from licenced wholesalers and manufacturers respectively.</p>
+                        <p class="service-description">We also source, store and distribute generic products, medical
+                            disposables, medical devices, medical equipment, and surgical products.</p>
+                    </div>
+        
+                    <div class="service-section">
+                        <h2 class="service-section-title">EQUIPMENT MAINTENANCE</h2>
+                        <p class="service-description">We maintain and service any hospital equipment to keep it in reliable
+                            working order.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="delivery-section">
+                <div class="delivery-content">
+                    <h2 class="delivery-title">DELIVERY</h2>
+                    <p class="delivery-description">Our services meet a range of unique and specialised distribution
+                        requirements.
+                    </p>
+                    <ul class="delivery-list">
+                        <li>Warehousing</li>
+                        <li>Exports into Africa</li>
+                        <li>Devices and diagnostics</li>
+                        <li>Reliable delivery to the public and private</li>
+                    </ul>
+                </div>
+                <img src="images/microscope.jpg" alt="Laboratory scientist using microscope" class="delivery-image">
+            </div>
+        
+            <div class="outsourcing-section">
+                <h2 class="outsourcing-title">OUTSOURCING FOR CUSTOMERS WITH LARGE REQUIREMENTS</h2>
+                <p class="outsourcing-description">If you need product at scale, we can make the necessary arrangements.</p>
+            </div>
+        </div>
+    </body>
+    <footer class="footer-container" role="contentinfo">
+        <div class="footer-main">
+            <div class="footer-content">
+                <div class="footer-sections">
+                    <div class="footer-row">
+                        <div class="brand-column">
+                            <div class="brand-content">
+                                <h2 class="brand-name">METLINE</h2>
+                                <p class="brand-description">
+                                    Medical Equipment &<br />Consumables Distributers
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contact-column">
+                            <div class="contact-content">
+                                <h3 class="contact-heading">Contact Us</h3>
+                                <p class="contact-phone">Call: +267 3111971</p>
+                                <p class="contact-email">
+                                    Email:
+                                    <a href="mailto:thatayaoneg@metline.co.bw" class="email-link">
+                                        thatayaoneg@metline.co.bw
+                                    </a>
+                                <p></p>
+                                <a href="mailto:sales@metline.co.bw" class="email-link">
+                                    sales@metline.co.bw
+                                </a>
+                                </p>
+                                <p class="contact-address">
+                                    Address: Plot 64, Unit 30, Gaborone International Commerce Park, Gaborone, Botswana
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="footer-divider" aria-hidden="true" />
+                <div class="footer-bottom">
+                    <p class="copyright-text">© 2024 METLINE (PTY) LTD. All Rights Reserved</p>
+                    <div class="social-links">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/615be6a6e14e66bbef4147782d0830c91aff9b41e030c279039325812629ccba?placeholderIfAbsent=true&apiKey=8547e54ae68444a7bf1ef236725efd17"
+                            class="social-icon" alt="Social media icon" />
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/107a0289485e16f779b3b642f1187325f9f535f7e8327c4088c55f75b9268702?placeholderIfAbsent=true&apiKey=8547e54ae68444a7bf1ef236725efd17"
+                            class="social-icon" alt="Social media icon" />
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/adf93af43c469cb727d07591b7043a58a7a834e5e6ef24777f08a9bbcf7950f9?placeholderIfAbsent=true&apiKey=8547e54ae68444a7bf1ef236725efd17"
+                            class="social-icon" alt="Social media icon" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</html>
+

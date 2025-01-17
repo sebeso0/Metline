@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    <title>About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&family=Yeseva+One&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --white: #fcfefe;
+            --primary-green: #222823;
+            --secondary-blue: #159eec;
+            --accent-blue: #bfd2f8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            line-height: 1.6;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        .container {
+            max-width: 100%; /* Ensures container doesn't exceed the viewport width */
+            overflow: hidden; /* Hides any accidental overflow */
+        }
+
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .brand-logo {
+            position: relative;
+            /* Changed from absolute */
+            margin: 10px;
+        }
+
+        .logo-image {
+            width: 150px;
+            height: auto;
+            display: block;
+            max-height: 60px;
+            object-fit: contain;
+        }
+
+        .header-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 19px 80px;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        /* Header Styles */
+        .header-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-wrapper {
+            background: var(--white);
+            display: flex;
+            width: 100%;
+            gap: 40px 100px;
+            flex-wrap: wrap;
+            padding: 19px 1px 0 80px;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+        .brand-name {
+            color: var(--primary-green);
+            text-transform: uppercase;
+            font: 400 36px 'Yeseva One', serif;
+            flex-grow: 1;
+            width: 134px;
+        }
+
+        .contact-info-wrapper {
+            display: flex;
+            gap: 40px 44px;
+            font: 500 16px 'Work Sans', sans-serif;
+            align-items: center;
+        }
+
+        .emergency-contact,
+        .hours-wrapper,
+        .location-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .emergency-icon,
+        .hours-icon,
+        .location-icon {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-label {
+            color: var(--primary-green);
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            color: var(--secondary-blue);
+        }
+
+        .navigation-container {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+
+        .navigation-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 80px;
+            padding: 30px 187px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-blue);
+        }
+
+        .nav-link-active {
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        .get-quote-btn {
+            background-color: var(--accent-blue);
+            color: var(--primary-green);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .get-quote-btn:hover {
+            background-color: #a0c1f0;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 991px) {
+            .header-wrapper {
+                padding: 19px 20px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-info-wrapper {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .navigation-bar {
+                padding: 30px 20px;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            .get-quote-btn {
+                margin-top: 20px;
+            }
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #0d851f;
+            /* Green button */
+            color: white;
+            padding: 12px 24px;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #3A9570;
+        }
+
+        /* main */
+        /* Mission and Vision Sections */
+        .section {
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+
+        .section-text {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 2;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-section {
+            background-color: var(--background-color);
+            padding: 3rem 0;
+        }
+
+        .why-choose-title {
+            color: var(--primary-color);
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            flex-shrink: 0;
+            width: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: var(--text-color);
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer */
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-main {
+            background: var(--Primary, #222823);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 71px 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            width: 100%;
+            max-width: 992px;
+            flex-direction: column;
+        }
+
+        .footer-sections {
+            margin-right: 32px;
+        }
+
+        .footer-row {
+            gap: 20px;
+            display: flex;
+        }
+
+        .brand-column {
+            display: flex;
+            flex-direction: column;
+            line-height: normal;
+            width: 31%;
+            margin-left: 0;
+        }
+
+        .brand-content {
+            display: flex;
+            flex-direction: column;
+            font-weight: 400;
+        }
+
+        .brand-name {
+            color: var(--Accent, #bfd2f8);
+            text-transform: uppercase;
+            align-self: start;
+            font: 36px Yeseva One, sans-serif;
+        }
+
+        .brand-description {
+            color: var(--white, #fcfefe);
+            margin-top: 17px;
+            font: 18px/25px Work Sans, sans-serif;
+        }
+
+        .contact-column {
+            display: flex;
+            flex-direction: column;
+            line-height: normal;
+            width: 69%;
+            margin-left: 20px;
+        }
+
+        .contact-content {
+            display: flex;
+            flex-grow: 1;
+            flex-direction: column;
+            align-items: start;
+            color: var(--white, #fcfefe);
+            font: 400 16px/1.4 Work Sans, sans-serif;
+        }
+
+        .contact-heading {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .contact-phone {
+            margin-top: 38px;
+        }
+
+        .contact-email {
+            margin-top: 7px;
+        }
+
+        .contact-address {
+            align-self: stretch;
+            margin-top: 7px;
+        }
+
+        .footer-divider {
+            aspect-ratio: 1000;
+            object-fit: contain;
+            object-position: center;
+            width: 100%;
+            stroke-width: 1px;
+            stroke: var(--Accent, #bfd2f8);
+            margin-top: 74px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            margin-top: 44px;
+            width: 100%;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .copyright-text {
+            color: var(--white, #fcfefe);
+            margin: auto 0;
+            font: 400 16px Work Sans, sans-serif;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icon {
+            aspect-ratio: 1;
+            object-fit: contain;
+            object-position: center;
+            width: 24px;
+            fill: var(--Accent, #bfd2f8);
+        }
+
+        .email-link {
+            text-decoration: underline;
+            color: inherit;
+        }
+
+        @media (max-width: 991px) {
+            .footer-main {
+                max-width: 100%;
+                padding: 0 20px;
+            }
+
+            .footer-content {
+                max-width: 100%;
+            }
+
+            .footer-sections {
+                max-width: 100%;
+                margin-right: 10px;
+            }
+
+            .footer-row {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+            }
+
+            .brand-column {
+                width: 100%;
+            }
+
+            .brand-content {
+                margin-top: 40px;
+            }
+
+            .contact-column {
+                width: 100%;
+            }
+
+            .contact-content {
+                max-width: 100%;
+                margin-top: 40px;
+            }
+
+            .contact-address {
+                max-width: 100%;
+            }
+
+            .footer-divider {
+                max-width: 100%;
+                margin-top: 40px;
+            }
+
+            .footer-bottom {
+                max-width: 100%;
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .homepage {
+                min-height: auto;
+                padding: 50px 20px;
+            }
+
+            .homepage-title {
+                font-size: 2rem;
+            }
+
+            .homepage-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        /* Image */
+        hero-image {
+            aspect-ratio: 4.67;
+            object-fit: contain;
+            object-position: center;
+            width: 100%;
+            align-self: stretch;
+            margin: 18px 0 0;
+        }
+        
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        @media (max-width: 991px) {
+            .hero-image {
+            max-width: 100%;
+            }
+        }
+
+        /* image banner */
+        img {
+            width: 100%; /* Makes the image stretch to the full width of the container */
+            height: auto; /* Maintains aspect ratio */
+            display: block; /* Prevents whitespace below the image */
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <header class="header-container" role="banner">
+        <div class="header-wrapper">
+            <!-- <h1 class="brand-name">METLine</h1> -->
+            <div class="brand-logo">
+                <a href="#">
+                    <img src="images/METLINE LOGO.png" alt="Metline Logo" class="logo-image"
+                        onerror="this.onerror=null; this.src='/api/placeholder/150/50';" />
+                </a>
+            </div>
+            <div class="contact-info-wrapper">
+                <div class="emergency-contact">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/558daa917e48431dfc6fffd8896a1e81854601534009a79c34f36b0261240815?placeholderIfAbsent=true&apiKey=8547e54ae68444a7bf1ef236725efd17"
+                        alt="" class="emergency-icon" />
+                    <div class="contact-details">
+                        <span class="contact-label">Call</span>
+                        <span class="contact-info">
+                            +267 3111971
+                            <br />
+                            +267 77400763
+                        </span>
+                    </div>
+                </div>
+                <div class="hours-wrapper">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ec49688a3862379dededa3532f4aaffc5b1fcb46a12d31b7e3f1cf23427d254b?placeholderIfAbsent=true&apiKey=8547e54ae68444a7bf1ef236725efd17"
+                        alt="" class="hours-icon" />
+                    <div class="contact-details">
+                        <span class="contact-label">Work Hour</span>
+                        <span class="contact-info">08:00 - 17:00</span>
+                    </div>
+                </div>
+                <div class="location-wrapper">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9bff12036c861ce8df4797fa1aea5b0f59eb92b7847de119fd14e9eb302b0d65?placeholderIfAbsent=true&apiKey=8547e54ae68444a7bf1ef236725efd17"
+                        alt="" class="location-icon" />
+                    <div class="contact-details">
+                        <span class="contact-label">Location</span>
+                        <span class="contact-info">
+                            Plot 64, Unit 30, Gaborone International
+                            <br />
+                            Commerce Park, Gaborone, Botswana
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navigation-container">
+            <nav class="navigation-bar" role="navigation" aria-label="Main navigation">
+                <div class="nav-links">
+                    <a href="METLINE.html" class="nav-link">Home</a>
+                    <a href="AboutUs.html" class="nav-link nav-link-active" aria-current="page">About us</a>
+                    <a href="Services.html" class="nav-link">Services</a>
+                    <a href="ContactUs.html" class="nav-link">Contact Us</a>
+                </div>
+                <button class="get-quote-btn">Get Quote</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- <img loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/1fb4bafd80829d5586c4c877e29e5de226349af05398fd89293110110d6ec868?placeholderIfAbsent=true&apiKey=8547e54ae68444a7bf1ef236725efd17"
+        class="hero-image" alt="Hero section banner image" tabindex="0" /> -->
+
+    <!-- <div class="container">
+        <img src="https://cdn.builder.io/api/v1/image/assets/2f0cc2214e5744a2aeeada1d307d6704/6d49527ec1f8e0ce39ab10c0f6bb192457fcea8d42dc66b0ac030d17cb3c104e?apiKey=2f0cc2214e5744a2aeeada1d307d6704&"
+            alt="" class="hero-image" />
+    </div> -->
+
+    <img src="https://cdn.builder.io/api/v1/image/assets/2f0cc2214e5744a2aeeada1d307d6704/6d49527ec1f8e0ce39ab10c0f6bb192457fcea8d42dc66b0ac030d17cb3c104e?apiKey=2f0cc2214e5744a2aeeada1d307d6704&"
+        alt="" class="hero-image" />
+    
+    
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">Our Mission</h2>
+            <p class="section-text">
+                Our mission is to enhance the quality of patient care by supplying top-of-the-line medical equipment
+                and consumables that enable healthcare providers to deliver superior medical services. We aim to be
+                the preferred partner for healthcare institutions seeking reliable and cost-effective solutions.
+            </p>
+        </section>
+    
+        <section class="section">
+            <h2 class="section-title">Our Vision</h2>
+            <p class="section-text">
+                To be a trusted leader in the distribution of medical equipment and consumables, setting the standard
+                for quality, reliability, and customer service in the healthcare industry. We aspire to contribute to
+                the
+                advancement of healthcare by providing access to cutting-edge products and technologies.
+            </p>
+        </section>
+    
+        <section class="why-choose-section">
+            <div class="container">
+                <h2 class="section-title why-choose-title">Why Choose Metline</h2>
+    
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                        <p class="card-text">Extensive product selection from reputable manufacturers</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-tags"></i></div>
+                        <p class="card-text">Competitive pricing and bulk purchase discounts</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-truck"></i></div>
+                        <p class="card-text">Reliable and efficient distribution network</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-headset"></i></div>
+                        <p class="card-text">Dedicated customer support and after-sales service</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-check-circle"></i></div>
+                        <p class="card-text">Commitment to quality assurance and compliance with industry standards</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-rocket"></i></div>
+                        <p class="card-text">Continuous innovation and product updates to meet market demands</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+<footer class="footer-container" role="contentinfo">
+    <div class="footer-main">
+        <div class="footer-content">
+            <div class="footer-sections">
+                <div class="footer-row">
+                    <div class="brand-column">
+                        <div class="brand-content">
+                            <h2 class="brand-name">METLINE</h2>
+                            <p class="brand-description">
+                                Medical Equipment &<br />Consumables Distributers
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-column">
+                        <div class="contact-content">
+                            <h3 class="contact-heading">Contact Us</h3>
+                            <p class="contact-phone">Call: +267 3111971</p>
+                            <p class="contact-email">
+                                Email:
+                                <a href="mailto:thatayaoneg@metline.co.bw" class="email-link">
+                                    thatayaoneg@metline.co.bw
+                                </a>
+                            <p></p>
+                            <a href="mailto:sales@metline.co.bw" class="email-link">
+                                sales@metline.co.bw
+                            </a>
+                            </p>
+                            <p class="contact-address">
+                                Address: Plot 64, Unit 30, Gaborone International Commerce Park, Gaborone, Botswana.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider" aria-hidden="true" />
+            <div class="footer-bottom">
+                <p class="copyright-text">© 2024 METLINE (PTY) LTD. All Rights Reserved</p>
+                <div class="social-links">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/615be6a6e14e66bbef4147782d0830c91aff9b41e030c279039325812629ccba?placeholderIfAbsent=true&apiKey=8547e54ae68444a7bf1ef236725efd17"
+                        class="social-icon" alt="Social media icon" />
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/107a0289485e16f779b3b642f1187325f9f535f7e8327c4088c55f75b9268702?placeholderIfAbsent=true&apiKey=8547e54ae68444a7bf1ef236725efd17"
+                        class="social-icon" alt="Social media icon" />
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/adf93af43c469cb727d07591b7043a58a7a834e5e6ef24777f08a9bbcf7950f9?placeholderIfAbsent=true&apiKey=8547e54ae68444a7bf1ef236725efd17"
+                        class="social-icon" alt="Social media icon" />
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>
